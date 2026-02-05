@@ -24,7 +24,7 @@ export default function Navbar({
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      const sections = ["home", "services", "consultation", "projects", "contact"];
+      const sections = ["home", "presentation", "services", "consultation", "projects", "contact"];
       const current = sections.find((section) => {
         const el = document.getElementById(section);
         if (!el) return false;
@@ -41,9 +41,8 @@ export default function Navbar({
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[#1a1a1a]/80 backdrop-blur-md border-b border-white/10 py-4" : "bg-transparent py-6"
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? "bg-[#1a1a1a]/80 backdrop-blur-md border-b border-white/10 py-4" : "bg-transparent py-6"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <a
@@ -60,15 +59,13 @@ export default function Navbar({
               <a
                 key={link.name}
                 href={link.href}
-                className={`group relative text-sm font-medium transition-colors hover:text-[#d9885a] ${
-                  isActive ? "text-[#d9885a]" : "text-[#c9c9c9]"
-                }`}
+                className={`group relative text-sm font-medium transition-colors hover:text-[#d9885a] ${isActive ? "text-[#d9885a]" : "text-[#c9c9c9]"
+                  }`}
               >
                 {link.name}
                 <span
-                  className={`absolute left-0 -bottom-1 h-0.5 w-full bg-[#d9885a] transition-transform duration-300 ${
-                    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                  }`}
+                  className={`absolute left-0 -bottom-1 h-0.5 w-full bg-[#d9885a] transition-transform duration-300 ${isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                    }`}
                   style={{ transformOrigin: "left" }}
                 />
               </a>
@@ -77,9 +74,9 @@ export default function Navbar({
         </div>
 
         <div className="hidden md:flex space-x-4">
-          <SocialIcon Icon={Github} />
-          <SocialIcon Icon={Linkedin} />
-          <SocialIcon Icon={Mail} />
+          <SocialIcon Icon={Github} href="https://github.com/Ange-web" />
+          <SocialIcon Icon={Linkedin} href="https://www.linkedin.com/in/ange-nono-a4480a349/" />
+          <SocialIcon Icon={Mail} href="mailto:angenono.pro@gmail.com" />
         </div>
 
         <button className="md:hidden text-[#f5f5f5]" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -101,9 +98,9 @@ export default function Navbar({
           ))}
 
           <div className="flex space-x-4 pt-4 border-t border-white/10">
-            <SocialIcon Icon={Github} />
-            <SocialIcon Icon={Linkedin} />
-            <SocialIcon Icon={Mail} />
+            <SocialIcon Icon={Github} href="https://github.com/Ange-web" />
+            <SocialIcon Icon={Linkedin} href="https://www.linkedin.com/in/ange-nono-a4480a349/" />
+            <SocialIcon Icon={Mail} href="mailto:angenono.pro@gmail.com" />
           </div>
         </div>
       )}
@@ -111,10 +108,12 @@ export default function Navbar({
   );
 }
 
-function SocialIcon({ Icon }: { Icon: React.ElementType }) {
+function SocialIcon({ Icon, href = "#" }: { Icon: React.ElementType; href?: string }) {
   return (
     <a
-      href="#"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#c9c9c9] hover:text-[#1a1a1a] hover:bg-[#d9885a] hover:border-[#d9885a] transition-all duration-300"
     >
       <Icon className="w-5 h-5" />

@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import BackgroundOrbs from "./BackgroundOrbs";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
+import PresentationSection from "./PresentationSection";
 import Services from "./Services";
 import Consultation from "./Consultation";
 import Projects from "./Projects";
@@ -19,6 +20,7 @@ export default function PortfolioPage() {
   const navLinks = useMemo(
     () => [
       { name: "Accueil", href: "#home" },
+      { name: "Présentation", href: "#presentation" },
       { name: "Services", href: "#services" },
       { name: "Consultation IA", href: "#consultation" },
       { name: "Projets", href: "#projects" },
@@ -41,6 +43,7 @@ export default function PortfolioPage() {
 
       <main className="relative z-10">
         <Hero />
+        <PresentationSection />
         <Services />
         <Consultation />
         <Projects />

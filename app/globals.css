@@ -24,3 +24,73 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ========== ANIMATIONS PRESENTATION SECTION ========== */
+
+/* Marquee horizontal */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Scroll vertical (stack gauche) */
+@keyframes scrollV {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-scroll-v {
+  animation: scrollV 20s linear infinite;
+}
+
+/* Scroll vertical inversé (stack droite) */
+@keyframes scrollVReverse {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-scroll-v-reverse {
+  animation: scrollVReverse 20s linear infinite;
+}
+
+/* Pause au hover pour les scrolls verticaux */
+.group:hover .animate-scroll-v,
+.group:hover .animate-scroll-v-reverse {
+  animation-play-state: paused;
+}
+
+/* Border glow animation pour bouton email */
+@keyframes borderGlow {
+  0%, 100% {
+    border-color: rgba(217, 136, 90, 0.4);
+    box-shadow: 0 0 15px rgba(217, 136, 90, 0.2);
+  }
+  50% {
+    border-color: rgba(217, 136, 90, 0.8);
+    box-shadow: 0 0 25px rgba(217, 136, 90, 0.4);
+  }
+}
+
+.animate-border-glow {
+  animation: borderGlow 2s ease-in-out infinite;
+}
