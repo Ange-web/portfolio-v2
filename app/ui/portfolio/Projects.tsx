@@ -43,20 +43,7 @@ export default function Projects() {
     return () => observer.disconnect();
   }, [selectedProject, handleCloseModal]);
 
-  // Fermeture au wheel/touch
-  useEffect(() => {
-    if (!selectedProject) return;
 
-    const handleWheel = () => handleCloseModal();
-
-    window.addEventListener("wheel", handleWheel, { passive: true });
-    window.addEventListener("touchmove", handleWheel, { passive: true });
-
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("touchmove", handleWheel);
-    };
-  }, [selectedProject, handleCloseModal]);
 
   return (
     <section
